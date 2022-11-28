@@ -44,7 +44,7 @@
                         </li>
                     <?php endif ?>
                 <?php else : ?>
-                    <?php $value = "Login-Registreer" ?>
+                    <?php $value = "Login" ?>
                     <?php if ($page == $value) : ?>
                         <li class="nav-item p-1">
                             <a href="<?= ROOT . $value ?>" class="nav-link bg-success text-light fs-5"><?= $value ?></a>

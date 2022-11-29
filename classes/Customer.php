@@ -40,7 +40,6 @@ class Customer
         $sth->execute();
         return $sth->fetchAll();
     }
-    
 }
 
 ?>

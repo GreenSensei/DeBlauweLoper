@@ -6,6 +6,7 @@ const ROOT = "/DeBlauweLoper";
 
 require_once("classes/Pages.php");
 require_once("classes/DBConn.php");
+require_once("classes/Login.php");
 
 session_start();
 

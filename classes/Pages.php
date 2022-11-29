@@ -27,7 +27,7 @@ class Pages
     }
     public static function getHeader()
     {
-        $page = substr($_SERVER["REQUEST_URI"], 16);
+        $page = substr($_SERVER["REQUEST_URI"], 15);
         $dotPos = strpos($page, "?");
         if($dotPos)
             return substr($page, 0, $dotPos);

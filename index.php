@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-const ROOT = "/DeBlauweLoper/";
+const ROOT = "/DeBlauweLoper";
 
 require_once("classes/Pages.php");
 require_once("classes/DBConn.php");

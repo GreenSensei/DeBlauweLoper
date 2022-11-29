@@ -10,51 +10,7 @@
 
         <div class="collapse navbar-collapse" id="navmenu">
             <ul class="nav nav-pills nav-fill ms-auto">
-                <?php foreach (Pages::getPagesFileNames() as $value) : ?>
-                    <?php $page = empty($page) ? "Home" : $page; ?>
-                    <?php if ($page == $value) : ?>
-                        <li class="nav-item p-1">
-                            <a href="<?= ROOT . $value ?>" class="nav-link bg-success text-light fs-5"><?= $value ?></a>
-                        </li>
-                    <?php else : ?>
-                        <li class="nav-item p-1">
-                            <a href="<?= ROOT . $value ?>" class="nav-link text-success border border-succes border-1 rounded fs-5"><?= $value ?></a>
-                        </li>
-                    <?php endif ?>
-                <?php endforeach; ?>
-                <?php if (isset($_SESSION['user'])) : ?>
-                    <?php $value = "Beheer-Account" ?>
-                    <?php if ($page == $value) : ?>
-                        <li class="nav-item p-1">
-                            <a href="<?= ROOT . $value ?>" class="nav-link bg-success text-light fs-5"><?= $value ?></a>
-                        </li>
-                    <?php else : ?>
-                        <li class="nav-item p-1">
-                            <a href="<?= ROOT . $value ?>" class="nav-link text-success border border-succes border-1 rounded fs-5"><?= $value ?></a>
-                        </li>
-                    <?php endif ?>
-                    <?php $value = "Uitloggen" ?>
-                    <?php if ($page == $value) : ?>
-                        <li class="nav-item p-1">
-                            <a href="<?= ROOT . $value ?>" class="nav-link bg-success text-light fs-5"><?= $value ?></a>
-                        </li>
-                    <?php else : ?>
-                        <li class="nav-item p-1">
-                            <a href="<?= ROOT . $value ?>" class="nav-link text-success border border-succes border-1 rounded fs-5"><?= $value ?></a>
-                        </li>
-                    <?php endif ?>
-                <?php else : ?>
-                    <?php $value = "Login" ?>
-                    <?php if ($page == $value) : ?>
-                        <li class="nav-item p-1">
-                            <a href="<?= ROOT . $value ?>" class="nav-link bg-success text-light fs-5"><?= $value ?></a>
-                        </li>
-                    <?php else : ?>
-                        <li class="nav-item p-1">
-                            <a href="<?= ROOT . $value ?>" class="nav-link text-success border border-succes border-1 rounded fs-5"><?= $value ?></a>
-                        </li>
-                    <?php endif ?>
-                <?php endif ?>
+                <a href="<?= ROOT ?>/in-outlog/login" class="nav-link text-success border border-succes border-1 rounded fs-5">Login</a>    
             </ul>
         </div>
     </div>

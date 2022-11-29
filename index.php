@@ -24,12 +24,13 @@ session_start();
     <?php
 
     $page = Pages::getHeader();
+   // echo $page;
     require_once("required/header.php");
 
-    if ($page == "Login" || $page == "Uitloggen") {
+    if ($page == "Login" ) {
         require_once("pages/in-outlog/" . $page . ".php");
-    } else if ($page == "Beheer-Account" || $page == "Registreren") {
-        require_once("pages/account/" . $page . ".php");
+    // } else if ($page == "Beheer-Account" || $page == "Registreren") {
+    //     require_once("pages/account/" . $page . ".php");|| $page == "Uitloggen"
     } else {
         $page = empty($page) ? "Home" : $page;
 

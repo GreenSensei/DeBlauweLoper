@@ -1,6 +1,13 @@
 <nav class="navbar bg-light navbar-expand-md navbar-light">
     <div class="container">
 
+    <?php if(isset($_SESSION["user"])) : ?>
+        <div class="collapse navbar-collapse" id="navmenu">
+            <ul class="nav nav-pills nav-fill ms-auto">
+                <a href="<?= ROOT ?>/in-outlog/uitloggen" class="nav-link text-success border border-succes border-1 rounded fs-5">Uitloggen</a>    
+            </ul>
+        </div>
+    <?php else : ?> 
         <div class="collapse navbar-collapse" id="navmenu">
             <ul class="nav nav-pills nav-fill ms-auto">
                 <a href="<?= ROOT ?>/in-outlog/login" class="nav-link text-success border border-succes border-1 rounded fs-5">Login</a>    
@@ -16,10 +23,12 @@
                 <a href="<?= ROOT ?>/contact" class="nav-link text-success border border-succes border-1 rounded fs-5">Contact</a>    
             </ul>
         </div>
-
-
-
-
+        <div class="collapse navbar-collapse" id="navmenu">
+            <ul class="nav nav-pills nav-fill ms-auto">
+                <a href="<?= ROOT ?>/informatie" class="nav-link text-success border border-succes border-1 rounded fs-5">Informatie</a>    
+            </ul>
+        </div>
+    <?php endif ;?>
         <a href="<?= ROOT ?>" class="text-decoration-none">
             <h2 class="text-dark p-2">De <span class="text-primary">Blauwe </span><span class="text-dark">Loper</span></h2>
         </a>

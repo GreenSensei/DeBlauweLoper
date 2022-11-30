@@ -1,5 +1,6 @@
 <body>
     <section class="text-center">
+        <br><br>
         <h2>Leden</h2>
     </section>
 
@@ -23,7 +24,7 @@
                         <td style="width: 15%">
                             <a href="<?=ROOT?>/customers/editCustomer">
                                 <button type="button" class="btn btn-sm" style="width: 30%">
-                                    <img style="width: 100%; height: auto" src="<?=ROOT?>/images/edit.png">
+                                    <img style="width: 100%" src="<?=ROOT?>/images/edit.png">
                                 </button>
                             </a>
                         </td>

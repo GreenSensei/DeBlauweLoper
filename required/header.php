@@ -4,28 +4,28 @@
     <?php if(isset($_SESSION["user"])) : ?>
         <div class="collapse navbar-collapse" id="navmenu">
             <ul class="nav nav-pills nav-fill ms-auto">
-                <a href="<?= ROOT ?>/in-outlog/uitloggen" class="nav-link text-success border border-succes border-1 rounded fs-5">Uitloggen</a>    
+                <a href="<?= ROOT ?>/in-outlog/uitloggen" class="nav-link text-primary border border-succes border-1 rounded fs-5">Uitloggen</a>    
             </ul>
         </div>
     <?php else : ?> 
         <div class="collapse navbar-collapse" id="navmenu">
             <ul class="nav nav-pills nav-fill ms-auto">
-                <a href="<?= ROOT ?>/in-outlog/login" class="nav-link text-success border border-succes border-1 rounded fs-5">Login</a>    
+                <a href="<?= ROOT ?>/in-outlog/login" class="nav-link text-primary border border-succes border-1 rounded fs-5">Login</a>    
             </ul>
         </div>
         <div class="collapse navbar-collapse" id="navmenu">
             <ul class="nav nav-pills nav-fill ms-auto">
-                <a href="<?= ROOT ?>/leden" class="nav-link text-success border border-succes border-1 rounded fs-5">Leden</a>    
+                <a href="<?= ROOT ?>/leden" class="nav-link text-primary border border-succes border-1 rounded fs-5">Leden</a>    
             </ul>
         </div>
         <div class="collapse navbar-collapse" id="navmenu">
             <ul class="nav nav-pills nav-fill ms-auto">
-                <a href="<?= ROOT ?>/contact" class="nav-link text-success border border-succes border-1 rounded fs-5">Contact</a>    
+                <a href="<?= ROOT ?>/contact" class="nav-link text-primary border border-succes border-1 rounded fs-5">Contact</a>    
             </ul>
         </div>
         <div class="collapse navbar-collapse" id="navmenu">
             <ul class="nav nav-pills nav-fill ms-auto">
-                <a href="<?= ROOT ?>/informatie" class="nav-link text-success border border-succes border-1 rounded fs-5">Informatie</a>    
+                <a href="<?= ROOT ?>/informatie" class="nav-link text-primary border border-succes border-1 rounded fs-5">Informatie</a>    
             </ul>
         </div>
     <?php endif ;?>

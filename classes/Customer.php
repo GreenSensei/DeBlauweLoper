@@ -36,7 +36,7 @@ class Customer
 
     public static function GetAllCustomers()
     {
-        $sth = DBConn::PDO()->prepare("SELECT name, email, phone, customer_status_id FROM customer");
+        $sth = DBConn::PDO()->prepare("SELECT customer.name, customer.email, customer.phone, customer_status.status FROM customer JOIN customer_status ON customer.customer_status_id = customer_status.id ORDER BY customer_status.status");
         $sth->execute();
         return $sth->fetchAll();
     }

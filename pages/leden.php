@@ -5,7 +5,7 @@
     </section>
 
     <section class="container mt-5">
-        <table class="table">
+        <table class="table table-striped">
             <thead>
                 <tr>
                     <td>Naam</td>
@@ -15,7 +15,7 @@
                     <td>Beheren</td>
                 </tr>
             </thead>
-            <tbody class="tabele-striped">
+            <tbody>
                 <?php foreach (Customer::GetAllCustomers() as $customer) : ?>
                     <tr>
                         <?php for ($i=0; $i <count($customer)/2 ; $i++) : ?>

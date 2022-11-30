@@ -20,10 +20,10 @@
                         <?php for ($i=0; $i <count($customer)/2 ; $i++) : ?>
                             <td class="align-middle"><?=$customer[$i]?></td>
                         <?php endfor; ?>
-                        <td>
+                        <td style="width: 15%">
                             <a href="<?=ROOT?>/customers/editCustomer">
-                                <button type="button" class="btn btn-sm" style="width: 10%">
-                                    <img style="width: 100%; heigtht: auto" src="<?=ROOT?>/images/edit.png">
+                                <button type="button" class="btn btn-sm" style="width: 30%">
+                                    <img style="width: 100%; height: auto" src="<?=ROOT?>/images/edit.png">
                                 </button>
                             </a>
                         </td>

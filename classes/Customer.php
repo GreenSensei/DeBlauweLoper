@@ -21,7 +21,11 @@ class Customer
     {
         return $this->phone;
     }
-    public function getStatus()
+    public function getPhone()
+    {
+        return $this->phone;
+    }
+    public function getStatusId()
     {
         return $this->status;
     }
@@ -34,13 +38,22 @@ class Customer
     //     return $sth->rowCount();
     // }
 
-    public static function GetAllCustomers()
+    public static function getAllCustomers()
     {
         $sth = DBConn::PDO()->prepare("SELECT customer.name, customer.email, customer.phone, customer_status.status FROM customer JOIN customer_status ON customer.customer_status_id = customer_status.id ORDER BY customer_status.status");
         $sth->execute();
         return $sth->fetchAll();
     }
     
+    public static function getCustomerById($id) : ?Customer
+    {
+        $params = array(":id" => $id);
+        $sth = DBConn::PDO()->prepare("SELECT * FROM customer WHERE id =:id");
+        $sth->execute($params);
+        if($row = $sth->fetch())
+            return new Customer($row["id"], $row["name"], $row["email"], $row["phone"], $row["customer_status_id"]);
+        return null;
+    }
 }
 
 ?>

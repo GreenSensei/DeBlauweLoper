@@ -25,7 +25,7 @@
 $error = null;
 if (isset($_POST["sign_in"]))
 {
-    $inlog = Inlog::CheckPassEmail($_POST["email"],$_POST["password"]);
+    $inlog = Login::CheckPassEmail($_POST["email"],$_POST["password"]);
     if (isset($inlog))
     {
         $_SESSION['user'] = $inlog;

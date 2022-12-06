@@ -32,5 +32,10 @@ class Status
         $sth->execute();
         return $sth->fetchAll();
     }
+
+    public function getSatusByVarchar()
+    {
+        
+    }
 }
 ?>

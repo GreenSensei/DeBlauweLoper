@@ -3,7 +3,7 @@
         <br><br>
         <h2>Leden</h2>
     </section>
-
+<!-- tabel leden overzicht -->
     <section class="container mt-5">
         <table class="table table-striped">
             <thead>
@@ -18,11 +18,11 @@
             <tbody>
                 <?php foreach (Customer::getAllCustomers() as $customer) : ?>
                     <tr>
-                        <?php for ($i=0; $i <count($customer)/2 ; $i++) : ?>
+                        <?php for ($i=0; $i <(count($customer)/2)-1 ; $i++) : ?>
                             <td class="align-middle"><?=$customer[$i]?></td>
                         <?php endfor; ?>
                         <td style="width: 15%">
-                            <a href="<?=ROOT?>/customers/editCustomer?id=2">
+                            <a href="<?=ROOT?>/customers/editCustomers?id=<?=$customer["id"]?>">
                                 <button type="button" class="btn btn-sm" style="width: 30%">
                                     <img style="width: 100%" src="<?=ROOT?>/images/edit.png">
                                 </button>

@@ -15,7 +15,12 @@
         </div>
         <div class="collapse navbar-collapse" id="navmenu">
             <ul class="nav nav-pills nav-fill ms-auto">
-                <a href="<?= ROOT ?>/leden" class="nav-link text-primary border border-succes border-1 rounded fs-5">Leden</a>    
+                <a href="<?= ROOT ?>/customers/customers" class="nav-link text-primary border border-succes border-1 rounded fs-5">Leden</a>    
+            </ul>
+        </div>
+        <div class="collapse navbar-collapse" id="navmenu">
+            <ul class="nav nav-pills nav-fill ms-auto">
+                <a href="<?= ROOT ?>/profile/profile" class="nav-link text-primary border border-succes border-1 rounded fs-5">Profiel</a>    
             </ul>
         </div>
         <div class="collapse navbar-collapse" id="navmenu">

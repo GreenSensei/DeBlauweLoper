@@ -1,5 +1,5 @@
 <?php
-
+// status functions
 class Status
 {
     function __construct(
@@ -16,7 +16,7 @@ class Status
         return $this->status;
     }
     
-    public static function getStatusById($id): ?Status
+    public static function getStatusById($id) : ?Status
     {
         $params = array(":id" => $id);
         $sth = DBConn::PDO()->prepare("SELECT * FROM customer_status WHERE id =:id");
@@ -33,7 +33,7 @@ class Status
         return $sth->fetchAll();
     }
 
-    public static function getStatusByVarchar($status): ?Status
+    public static function getStatusByVarchar($status) : ?Status
     {
         $params = array(":status" => $status);
         $sth = DBConn::PDO()->prepare("SELECT * FROM customer_status WHERE status =:status");

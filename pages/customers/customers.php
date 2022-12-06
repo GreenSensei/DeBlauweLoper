@@ -19,7 +19,12 @@
                 <?php foreach (Customer::getAllCustomers() as $customer) : ?>
                     <tr>
                         <?php for ($i=0; $i <(count($customer)/2)-1 ; $i++) : ?>
-                            <td class="align-middle"><?=$customer[$i]?></td>
+                            <?php if($i == 0) : ?>
+                                <td class="align-middle"><?=ucwords($customer[$i])?></td>
+                            <?php else : ?>
+                                <td class="align-middle"><?=$customer[$i]?></td>
+                            <?php endif; ?>
+                            
                         <?php endfor; ?>
                         <td style="width: 15%">
                             <a href="<?=ROOT?>/customers/editCustomers?id=<?=$customer["id"]?>">

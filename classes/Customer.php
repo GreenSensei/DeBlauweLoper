@@ -1,4 +1,5 @@
 <?php
+// customer functions
 class Customer
 {
     public function __construct(
@@ -29,14 +30,6 @@ class Customer
     {
         return $this->statusId;
     }
-
-    // public function delete(): ?int
-    // {
-    //     $params = array(":id" => $this->id);
-    //     $sth = DBConn::Pdo()->prepare("DELETE FROM customer WHERE id = :id");
-    //     $sth->execute($params);
-    //     return $sth->rowCount();
-    // }
 
     public static function getAllCustomers()
     {

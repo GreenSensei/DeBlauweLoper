@@ -2,11 +2,11 @@
 
 if (isset($_POST["login"]))
 {
-    $customer = Login::CheckPassEmail($_POST["email"],$_POST["password"]);
-    if (isset($customer))
+    $login = Login::CheckPassEmail($_POST["email"],$_POST["password"]);
+    if (isset($login))
     {
-        header('Location: ./');
-        echo "hoi";
+        $_SESSION["user"] = $login;
+        header("Location: ". ROOT."/profile/profile");
     }
     else
     {

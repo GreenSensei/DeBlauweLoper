@@ -7,20 +7,22 @@
                 <a href="<?= ROOT ?>/in-outlog/uitloggen" class="nav-link text-primary border border-succes border-1 rounded fs-5">Uitloggen</a>    
             </ul>
         </div>
+        <div class="collapse navbar-collapse" id="navmenu">
+            <ul class="nav nav-pills nav-fill ms-auto">
+                <a href="<?= ROOT ?>/profile/profile" class="nav-link text-primary border border-succes border-1 rounded fs-5">Profiel</a>    
+            </ul>
+        </div>
+        <?php if($_SESSION["user"]->getStatusId() == "3" || $_SESSION["user"]->getStatusId() == "4") : ?>
+            <div class="collapse navbar-collapse" id="navmenu">
+                <ul class="nav nav-pills nav-fill ms-auto">
+                    <a href="<?= ROOT ?>/customers/customers" class="nav-link text-primary border border-succes border-1 rounded fs-5">Leden</a>    
+                </ul>
+            </div>
+        <?php endif ?>
     <?php else : ?> 
         <div class="collapse navbar-collapse" id="navmenu">
             <ul class="nav nav-pills nav-fill ms-auto">
                 <a href="<?= ROOT ?>/in-outlog/login" class="nav-link text-primary border border-succes border-1 rounded fs-5">Login</a>    
-            </ul>
-        </div>
-        <div class="collapse navbar-collapse" id="navmenu">
-            <ul class="nav nav-pills nav-fill ms-auto">
-                <a href="<?= ROOT ?>/customers/customers" class="nav-link text-primary border border-succes border-1 rounded fs-5">Leden</a>    
-            </ul>
-        </div>
-        <div class="collapse navbar-collapse" id="navmenu">
-            <ul class="nav nav-pills nav-fill ms-auto">
-                <a href="<?= ROOT ?>/profile/profile" class="nav-link text-primary border border-succes border-1 rounded fs-5">Profiel</a>    
             </ul>
         </div>
         <div class="collapse navbar-collapse" id="navmenu">

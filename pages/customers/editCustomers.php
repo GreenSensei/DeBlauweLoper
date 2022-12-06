@@ -15,8 +15,8 @@
                 print_r($_POST);
                 
                 //update functie ding
-                (new Customer($customer->getId(), $_POST["name"], $_POST["email"], $_POST["phone"], 3))->updateCustomer();
-                // header("Location: ". ROOT . "/leden");
+                (new Customer($customer->getId(), $_POST["name"], $_POST["email"], $_POST["phone"], Status::getStatusByVarchar($_POST["status"])->getId()))->updateCustomer();
+                header("Location: ". ROOT . "/customers/customers");
               
             }
         ?>
@@ -26,7 +26,7 @@
         <label>Naam:</label>
         <input type="text" name="name" value="<?=$customer->getName()?>" readonly>
         <label>Email:</label>
-        <input type="text" name="email" value="<?=$customer->getEmail()?>" readonly>
+        <input type="email" name="email" value="<?=$customer->getEmail()?>" readonly>
         <label>Telefoonnummer:</label>
         <input type="text" name="phone" value="<?=$customer->getPhone()?>" readonly>
         <label>Status:</label>

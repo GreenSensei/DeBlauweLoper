@@ -33,9 +33,14 @@ class Status
         return $sth->fetchAll();
     }
 
-    public function getSatusByVarchar()
+    public static function getStatusByVarchar($status): ?Status
     {
-        
+        $params = array(":status" => $status);
+        $sth = DBConn::PDO()->prepare("SELECT * FROM customer_status WHERE status =:status");
+        $sth->execute($params);
+        if($row = $sth->fetch())
+            return new Status($row["id"], $row["status"]);
+        return null;
     }
 }
 ?>

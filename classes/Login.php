@@ -7,14 +7,16 @@ class Login
             private string $email;
             private string $phone;
             private string $password;
+            private string $statusId;
 
-            public function __construct(string $id, string $name, string $email, string $phone, string $password)
+            public function __construct(string $id, string $name, string $email, string $phone, string $password, string $statusId)
         {
             $this->id = $id;
             $this->name = $name;
             $this->email = $email;
             $this->phone = $phone;
             $this->password = $password;
+            $this->statusId = $statusId;
         }
             public function getId()
         {
@@ -35,6 +37,10 @@ class Login
             public function getPassword()
         {
             return $this->password;
+        }
+            public function getStatusId()
+        {
+            return $this->statusId;
         }
 
         public function delete(): ?int
@@ -61,21 +67,18 @@ class Login
             return $sth->fetchAll();
         }
 
-        public static function getCutomerById(string $id): ?Customer
+        public static function getCutomerById(string $id): ?Login
         {
             $params = array(":id" => $id);
             $sth = DBConn::PDO()->prepare("SELECT * FROM customer WHERE id = :id");
             $sth->execute($params);
 
             if ($row = $sth->fetch())
-                return new Customer($row["id"], $row["name"], $row["email"], $row["phone"], $row["password"]);
+                return new Login($row["id"], $row["name"], $row["email"], $row["phone"], $row["password"], $row["customer_status_id"]);
             return null;
-
-
         }
 
-
-        public static function CheckPassEmail(string $email, string $password): ?Customer
+        public static function CheckPassEmail(string $email, string $password): ?Login
         {
             $parameters = array(":Email" => $email);
             $sth = DBConn::PDO()->prepare("SELECT * FROM `customer` WHERE email = :Email");
@@ -84,14 +87,13 @@ class Login
 
             if ($sth->rowCount() > 0) {
                 if (password_verify($password, $row["password"])) {
-                    return new Customer($row["id"], $row["name"], $row["email"], $row["phone"], $row["password"]);
+                    return new Login($row["id"], $row["name"], $row["email"], $row["phone"], $row["password"], $row["customer_status_id"]);
                 }
             }
             return null;
-
         }
 
-        public static function checkEmail(string $email): ?Customer
+        public static function checkEmail(string $email): ?Login
         {
             $parameters = array(":Email" => $email);
             $sth = DBConn::PDO()->prepare("SELECT * FROM `customer` WHERE email = :Email");
@@ -99,7 +101,7 @@ class Login
             $row = $sth->fetch();
 
             if ($sth->rowCount() > 0) {
-                return new Customer($row["id"], $row["name"], $row["email"], $row["phone"], $row["password"]);
+                return new Login($row["id"], $row["name"], $row["email"], $row["phone"],  $row["password"], $row["customer_status_id"]);
             }
             return null;
         }
@@ -115,7 +117,7 @@ class Login
             $sth->execute($parameters);
             $row = $sth->fetch();
 
-            return new Customer($row["id"], $row["name"], $row["email"], $row["phone"], $row["password"]);
+            return new Login($row["id"], $row["name"], $row["email"], $row["phone"], $row["password"], $row["customer_status_id"]);
         }
 
         public static function emailValidation(string $email): bool

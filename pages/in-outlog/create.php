@@ -15,6 +15,8 @@
         <p>Email</p>
         <input type="email" name="email" placeholder="Enter Email">
         <p>Password</p>
+        <input type="number" name="phone" placeholder="Enter Phonenumber">
+        <p>Password</p>
         <input type="password" name="password" placeholder="Enter Password">
         <p>Confirm Password</p>
         <input type="password" name="confirmpassword" placeholder="Enter Password">
@@ -24,6 +26,20 @@
 </html>
 
 <?php
-if (isset($_POST['create'])){
+$register = new Register();
 
+if (isset($_POST['create'])){
+    $result = $register->registration($_POST["name"], $_POST["email"], $_POST["phone"], $_POST["password"], $_POST["confirmpassword"]);
+    if($result == 1){
+        echo
+        "<script> alert('Registration Successful'); </script>";
+    }
+    elseif($result == 10){
+        echo
+        "<script> alert('Username or Email Has Already Taken'); </script>";
+    }
+    elseif($result == 100){
+        echo
+        "<script> alert('Password Does Not Match'); </script>";
+    }
 }

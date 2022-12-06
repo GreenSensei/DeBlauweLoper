@@ -1,3 +1,20 @@
+<?php
+
+if (isset($_POST["sign_in"]))
+{
+    $customer = Customer::CheckPassEmail($_POST["sign_in_email"],$_POST["sign_in_password"]);
+    if (isset($customer))
+    {
+        header('Location: ./');
+        echo "hoi";
+    }
+    else
+    {
+        echo "De email of het wachtwoord is incorrect";
+    }
+}
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -20,21 +37,3 @@
 
     </body>
 </html>
-
-<?php
-$error = null;
-if (isset($_POST["sign_in"]))
-{
-    $inlog = Login::CheckPassEmail($_POST["email"],$_POST["password"]);
-    if (isset($inlog))
-    {
-        $_SESSION['user'] = $inlog;
-        echo "jow";
-        $error = " ";
-    }
-    else
-    {
-        $error = "De email of het wachtwoord is incorrect";
-    }
-}
-?>

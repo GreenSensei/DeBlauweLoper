@@ -1,8 +1,8 @@
 <?php
 
-if (isset($_POST["sign_in"]))
+if (isset($_POST["login"]))
 {
-    $customer = Customer::CheckPassEmail($_POST["sign_in_email"],$_POST["sign_in_password"]);
+    $customer = Login::CheckPassEmail($_POST["email"],$_POST["password"]);
     if (isset($customer))
     {
         header('Location: ./');

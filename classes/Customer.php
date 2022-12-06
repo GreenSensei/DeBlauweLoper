@@ -6,7 +6,7 @@ class Customer
         private string $name, 
         private string $email,
         private string $phone,
-        private string $status
+        private string $statusId
     ){}
 
     public function getId()
@@ -27,7 +27,7 @@ class Customer
     }
     public function getStatusId()
     {
-        return $this->status;
+        return $this->statusId;
     }
 
     // public function delete(): ?int
@@ -40,7 +40,8 @@ class Customer
 
     public static function getAllCustomers()
     {
-        $sth = DBConn::PDO()->prepare("SELECT customer.name, customer.email, customer.phone, customer_status.status FROM customer JOIN customer_status ON customer.customer_status_id = customer_status.id ORDER BY customer_status.status");
+        $sth = DBConn::PDO()->prepare("SELECT customer.name, customer.email, customer.phone, customer_status.status, customer.id FROM customer 
+        JOIN customer_status ON customer.customer_status_id = customer_status.id ORDER BY customer_status.status");
         $sth->execute();
         return $sth->fetchAll();
     }
@@ -54,6 +55,38 @@ class Customer
             return new Customer($row["id"], $row["name"], $row["email"], $row["phone"], $row["customer_status_id"]);
         return null;
     }
+
+    //eerste
+    // public function updateCustomerBy($id, $name, $email, $phone, $customer_status_id)
+    // {
+    //     $params = array(
+    //         ":id" => $id, 
+    //         ":name" => $name, 
+    //         ":email" => $email, 
+    //         ":phone" => $phone, 
+    //         ":customer_status_id" => $customer_status_id);
+    //     $sth = DBConn::PDO()->prepare("UPDATE customer SET name = :name, email = :email, phone = :phone, customer_status_id = :customer_status_id WHERE id = :id");
+    //     $sth->execute($params);
+    //     return $sth->rowCount();
+    // }
+    
+    //van andere projecten nagemaakt
+    public function updateCustomer() : ?int
+    {
+        $params = array(":id"=>$this->id, ":name"=>$this->name, ":email"=>$this->email, ":phone"=>$this->phone, ":customer_status_id"=>$this->statusId);
+        $sth = DBConn::PDO()->prepare("UPDATE customer SET name=:name, email=:email, phone=:phone, customer_status_id=:customer_status_id WHERE id = :id");
+        $sth->execute($params);
+        return $sth->rowcount();
+    }
+    
+    // public function updateStatus(string $status)
+    // {
+    //     $params = array(":customer_status_id" => $this->statusId, ":status" => $status);
+    //     $sth = DBConn::PDO()->prepare("UPDATE status FROM customer_status");
+    //     $sth->execute();
+    //     return $sth->fetchAll();
+    // }
+
 }
 
 ?>

@@ -50,7 +50,7 @@ class Register
         $row = $sth->fetch();
 
         if ($row != "") {
-        return "hoi";
+        return "hoi2";
         }
         return null;
     }

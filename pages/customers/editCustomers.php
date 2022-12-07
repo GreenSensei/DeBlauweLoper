@@ -7,6 +7,8 @@
         { 
             //update functie 
             (new Customer($customer->getId(), $_POST["name"], $_POST["email"], $_POST["phone"], Status::getStatusByVarchar($_POST["status"])->getId()))->updateCustomer();
+            $msg ="Uw status is gewijzigd naar: ".$_POST["status"].".\rUw inlog mail:".$_POST["email"]."\rBezoek de website: http://localhost/DeBlauweLoper/home";
+            mail($email, "Wijziging status",$msg, "From:info@deblauweloper.nl"); 
             header("Location: ". ROOT . "/customers/customers");
             
         }

@@ -23,9 +23,12 @@
             echo "1";
             if ($_POST["password"] == $_POST["confirm_password"] && strlen($_POST["password"])>8){
                 $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-                $valid_email = Register::emailValidation($email);
-                if ($valid_email){
+                $valid_email = 1;
+                //Register::emailValidation($email);
+                if ($valid_email == 1){
                     $klant = Register::insertKlant($_POST['name'], $email, $_POST['phone'], $password);
+                    $msg ="Uw status is gewijzigd naar: ".$_POST["status"].".\rUw inlog mail:".$_POST["email"]."\rBezoek de website: http://localhost/DeBlauweLoper/home";
+                    mail($email, "Registratie",$msg, "From:info@deblauweloper.nl"); 
                     header("Location: ". ROOT . "/profile/profile");
                 } else{
                     echo "Deze email is ongeldig!";

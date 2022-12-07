@@ -4,7 +4,7 @@
     <?php if(isset($_SESSION["user"])) : ?>
         <div class="collapse navbar-collapse" id="navmenu">
             <ul class="nav nav-pills nav-fill ms-auto">
-                <a href="<?= ROOT ?>/in-outlog/uitloggen" class="nav-link text-primary border border-succes border-1 rounded fs-5">Uitloggen</a>    
+                <a href="<?= ROOT ?>/in-outlog/logout" class="nav-link text-primary border border-succes border-1 rounded fs-5">Uitloggen</a>
             </ul>
         </div>
         <div class="collapse navbar-collapse" id="navmenu">

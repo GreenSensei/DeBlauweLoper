@@ -44,34 +44,38 @@ class Register
 
     public static function CheckEmail(string $email, string $password): ?Customer
     {
-        $parameters = array(":Email" => $email);
-        $sth = DBConn::PDO()->prepare("SELECT * FROM `customer` WHERE email = :Email");
-        $sth->execute($parameters);
+        $sth = DBConn::PDO()->prepare("SELECT * FROM customer WHERE email=?");
+        $sth->execute([$_POST['email']]);
         $row = $sth->fetch();
 
-        if ($sth->rowCount() > 0) {
-            if (password_verify($password, $row["password"])) {
-                return new Customer($row["id"], $row["name"], $row["email"], $row["phone"], $row["password"]);
+        if ($row != "") {
+            echo "email already taken";
+        } else {
+            if ($password == $confirmpassword) {
+                $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+                DBConn::PDO()->prepare("INSERT INTO customer VALUES('$name', '$email', '$phone', '$password','1')";
+                echo "registration successful";
+            } else {
+                echo "password does not match";
             }
         }
-        return null;
-
-    }
-
-    public static function CreateAccount(string $email, string $password): ?Customer
-    {
-        $parameters = array(":Email" => $email);
-        $sth = DBConn::PDO()->prepare("SELECT * FROM `customer` WHERE email = :Email");
-        $sth->execute($parameters);
-        $row = $sth->fetch();
-
-        if ($sth->rowCount() > 0) {
-            if (password_verify($password, $row["password"])) {
-                return new Customer($row["id"], $row["name"], $row["email"], $row["phone"], $row["password"]);
-            }
-        }
-        return null;
 
     }
 }
+//    public static function CreateAccount(string $email, string $password): ?Customer
+//    {
+//        $parameters = array(":Email" => $email);
+//        $sth = DBConn::PDO()->prepare("SELECT * FROM `customer` WHERE email = :Email");
+//        $sth->execute($parameters);
+//        $row = $sth->fetch();
+//
+//        if ($sth->rowCount() > 0) {
+//            if (password_verify($password, $row["password"])) {
+//                return new Customer($row["id"], $row["name"], $row["email"], $row["phone"], $row["password"]);
+//            }
+//        }
+//        return null;
+//
+//    }
+//}
 

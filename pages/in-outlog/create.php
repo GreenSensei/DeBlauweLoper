@@ -29,7 +29,7 @@
 $register = new Register();
 
 if (isset($_POST['create'])){
-    $result = $register->registration($_POST["name"], $_POST["email"], $_POST["phone"], $_POST["password"], $_POST["confirmpassword"]);
+    $result = $register->CheckEmail($_POST["name"], $_POST["email"], $_POST["phone"], $_POST["password"], $_POST["confirmpassword"]);
     if($result == 1){
         echo
         "<script> alert('Registration Successful'); </script>";

@@ -19,27 +19,36 @@
         <p>Password</p>
         <input type="password" name="password" placeholder="Enter Password">
         <p>Confirm Password</p>
-        <input type="password" name="confirmpassword" placeholder="Enter Password">
+        <input type="password" name="confirm_password" placeholder="Enter Confirm-Password">
         <input type="submit" name="create" value="create">
     </form>
     </body>
 </html>
 
 <?php
-$register = new Register();
 
 if (isset($_POST['create'])){
-    $result = $register->CheckEmail($_POST["name"], $_POST["email"], $_POST["phone"], $_POST["password"], $_POST["confirmpassword"]);
-    if($result == 1){
-        echo
-        "<script> alert('Registration Successful'); </script>";
-    }
-    elseif($result == 10){
-        echo
-        "<script> alert('Username or Email Has Already Taken'); </script>";
-    }
-    elseif($result == 100){
-        echo
-        "<script> alert('Password Does Not Match'); </script>";
+    $email = strtolower($_POST['email']);
+    $klant = Register::CheckEmail($email);
+    if (isset($klant)){
+        echo "Deze email is al in gebruik!";
+    } else {
+        echo "1";
+        if ($_POST["password"] == $_POST["confirm_password"] && strlen($_POST["password"])>8){
+            $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+            $valid_email = Register::emailValidation($email);
+            if ($valid_email){
+                $data = Register::insertKlant($_POST['name'], $email, $_POST['phone'], $password);
+                header("Location: ". ROOT . "/profile/profile");
+            } else{
+                echo "Deze email is ongeldig!";
+            }
+        }
+        elseif ($_POST["password"] == $_POST["confirm_password"] && strlen($_POST["password"])<8){
+            echo "het wachtwoord is te kort";
+        }
+        elseif ($_POST["password"] != $_POST["confirm_password"]){
+            echo "het wachtwoord is niet hetzelfde";
+        }
     }
 }

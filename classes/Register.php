@@ -42,25 +42,28 @@ class Register
 //        }
 //    }
 
-    public static function CheckEmail(string $email, string $password): ?Customer
+    public static function CheckEmail(string $email): ?Register
     {
-        $sth = DBConn::PDO()->prepare("SELECT * FROM customer WHERE email=?");
-        $sth->execute([$_POST['email']]);
+        $params = array(":email"=>$email);
+        $sth = DBConn::PDO()->prepare("SELECT * FROM customer WHERE email=:email");
+        $sth->execute($params);
         $row = $sth->fetch();
 
         if ($row != "") {
-            echo "email already taken";
-        } else {
-            if ($password == $confirmpassword) {
-                $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-                DBConn::PDO()->prepare("INSERT INTO customer VALUES('$name', '$email', '$phone', '$password','1')";
-                echo "registration successful";
-            } else {
-                echo "password does not match";
-            }
+        return "hoi";
         }
-
+        return null;
     }
+
+    public static function emailValidation(string $email) : bool
+    {
+        return (bool)(pregmatch("^[a-zA-Z0-9.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$^",$email));
+    }
+
+    public static function insertKlant(string $name, string $email, string $phone, string $password){
+        DBConn::PDO()->prepare("INSERT INTO customer VALUES('$name', '$email', '$phone', '$password', '1')");
+    }
+
 }
 //    public static function CreateAccount(string $email, string $password): ?Customer
 //    {

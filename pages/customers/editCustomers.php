@@ -13,21 +13,27 @@
             
         }
     ?>
+
+    <section class="text-center mt-5">
+        <h2>Leden aanpassen</h2>
+    </section>
 <!-- from leden aanpassen -->
-    <form method="post">
-        <label>Naam:</label>
-        <input type="text" name="name" value="<?=$customer->getName()?>" readonly>
-        <label>Email:</label>
-        <input type="email" name="email" value="<?=$customer->getEmail()?>" readonly>
-        <label>Telefoonnummer:</label>
-        <input type="text" name="phone" value="<?=$customer->getPhone()?>" readonly>
-        <label>Status:</label>
-        <input type="text" list="status" name="status" required>
-        <datalist id="status">
-            <?php foreach (Status::getAllStatuses() as $statuses) : ?>
-                <option value="<?=$statuses["status"]?>"></option>
-            <?php endforeach; ?>
-        </datalist>
-        <input type="submit" value="Veranderen">
-    </form>
+    <div class="container mt-5">
+        <form  method="post">
+            <label>Naam:</label>
+            <input type="text" name="name" value="<?=ucwords($customer->getName())?>" disabled>
+            <label>Email:</label>
+            <input type="email" name="email" value="<?=$customer->getEmail()?>" disabled>
+            <label>Telefoonnummer:</label>
+            <input type="text" name="phone" value="<?=$customer->getPhone()?>" disabled>
+            <label>Status:</label>
+            <input type="text" list="status" name="status" required>
+            <datalist id="status">
+                <?php foreach (Status::getAllStatuses() as $statuses) : ?>
+                    <option value="<?=$statuses["status"]?>"></option>
+                <?php endforeach; ?>
+            </datalist>
+            <input type="submit" value="Veranderen">
+        </form>
+    </div>
 </body>

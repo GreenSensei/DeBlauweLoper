@@ -1,26 +1,7 @@
 <!-- controle wat een user wel en niet mag zien -->
 <nav class="navbar bg-light navbar-expand-md navbar-light">
     <div class="container">
-    <?php if(isset($_SESSION["user"])) : ?>
-        <div class="collapse navbar-collapse" id="navmenu">
-            <ul class="nav nav-pills nav-fill ms-auto">
-                <a href="<?= ROOT ?>/in-outlog/logout" class="nav-link text-primary border border-succes border-1 rounded fs-5">Uitloggen</a>
-            </ul>
-        </div>
-        <div class="collapse navbar-collapse" id="navmenu">
-            <ul class="nav nav-pills nav-fill ms-auto">
-                <a href="<?= ROOT ?>/profile/profile" class="nav-link text-primary border border-succes border-1 rounded fs-5">Profiel</a>    
-            </ul>
-        </div>
-        <?php if($_SESSION["user"]->getStatusId() == "3" || $_SESSION["user"]->getStatusId() == "4") : ?>
-            <div class="collapse navbar-collapse" id="navmenu">
-                <ul class="nav nav-pills nav-fill ms-auto">
-                    <a href="<?= ROOT ?>/customers/customers" class="nav-link text-primary border border-succes border-1 rounded fs-5">Leden</a>    
-                </ul>
-            </div>
-        <?php endif ?>
-    <?php else : ?> 
-        <div class="collapse navbar-collapse" id="navmenu">
+    <div class="collapse navbar-collapse" id="navmenu">
             <ul class="nav nav-pills nav-fill ms-auto">
                 <a href="<?= ROOT ?>/home" class="nav-link text-primary border border-succes border-1 rounded fs-5">Home</a>    
             </ul>
@@ -35,6 +16,25 @@
                 <a href="<?= ROOT ?>/contact" class="nav-link text-primary border border-succes border-1 rounded fs-5">Contact</a>    
             </ul>
         </div>
+    <?php if(isset($_SESSION["user"])) : ?>
+        <div class="collapse navbar-collapse" id="navmenu">
+            <ul class="nav nav-pills nav-fill ms-auto">
+                <a href="<?= ROOT ?>/profile/profile" class="nav-link text-primary border border-succes border-1 rounded fs-5">Profiel</a>    
+            </ul>
+        </div>
+        <?php if($_SESSION["user"]->getStatusId() == "3" || $_SESSION["user"]->getStatusId() == "4") : ?>
+            <div class="collapse navbar-collapse" id="navmenu">
+                <ul class="nav nav-pills nav-fill ms-auto">
+                    <a href="<?= ROOT ?>/customers/customers" class="nav-link text-primary border border-succes border-1 rounded fs-5">Leden</a>    
+                </ul>
+            </div>
+        <?php endif ?>
+        <div class="collapse navbar-collapse" id="navmenu">
+            <ul class="nav nav-pills nav-fill ms-auto">
+                <a href="<?= ROOT ?>/in-outlog/logout" class="nav-link text-primary border border-succes border-1 rounded fs-5">Uitloggen</a>
+            </ul>
+        </div>
+    <?php else : ?>
         <div class="collapse navbar-collapse" id="navmenu">
             <ul class="nav nav-pills nav-fill ms-auto">
                 <a href="<?= ROOT ?>/in-outlog/login" class="nav-link text-primary border border-succes border-1 rounded fs-5">Login</a>    
@@ -48,6 +48,5 @@
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
             <span class="navbar-toggler-icon"></span>
         </button>
-        
     </div>
 </nav>

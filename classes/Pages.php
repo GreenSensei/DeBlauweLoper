@@ -12,8 +12,6 @@ class Pages
             $result[] = $arr[Pages::$order[$i]];
         }
         return $result;
-
-        
     }
     public static function getPagesFileNames() : array
     {

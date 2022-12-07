@@ -1,6 +1,5 @@
 <body>
-    <section class="text-center">
-        <br><br>
+    <section class="text-center mt-5">
         <h2>Leden</h2>
     </section>
 <!-- tabel leden overzicht -->

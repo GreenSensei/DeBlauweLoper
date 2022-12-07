@@ -50,18 +50,27 @@ class Register
         $row = $sth->fetch();
 
         if ($row != "") {
-        return "hoi2";
+            echo "email already taken";
         }
         return null;
     }
 
     public static function emailValidation(string $email) : bool
     {
-        return (bool)(pregmatch("^[a-zA-Z0-9.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$^",$email));
+        return (bool)(preg_match("^[a-zA-Z0-9.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$^",$email));
     }
 
     public static function insertKlant(string $name, string $email, string $phone, string $password){
-        DBConn::PDO()->prepare("INSERT INTO customer VALUES('$name', '$email', '$phone', '$password', '1')");
+        $params =array(":name" =>$name, ":email"=>$email, ":phone"=>$phone, ":password"=>$password, ":customer_status_id"=>1);
+        $sth = DBConn::PDO()->prepare("INSERT INTO customer (name, email, phone, password, customer_status_id) VALUES (:name, :email, :phone, :password, :customer_status_id)");
+        $sth->execute($params);
+
+        $params= array(":email"=> $email);
+        $sth = DBConn::PDO()->prepare("SELECT * FROM `customer` WHERE email = :email");
+        $sth-> execute($params);
+        $row = $sth->fetch();
+
+        return new Register($row["id"], $row["name"], $row["email"], $row["phone"], $row["password"], $row["customer_status_id"]); 
     }
 
 }

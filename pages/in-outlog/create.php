@@ -1,3 +1,49 @@
+<?php
+
+    $regi_arr = array("sign_up_name","sign_up_email","sign_up_phone");
+    for ($i=0; $i < Count($regi_arr) ; $i++) 
+    { 
+        if (isset($_POST[$regi_arr[$i]])) 
+        {
+            $_SESSION[$regi_arr[$i]] = $_POST[$regi_arr[$i]];
+        }
+        else 
+        {
+            $_SESSION[$regi_arr[$i]] = "";
+        }
+    }
+    
+
+    if (isset($_POST['create'])){
+        $email = strtolower($_POST['email']);
+        $klant = Register::CheckEmail($email);
+        if (isset($klant)){
+            echo "Deze email is al in gebruik!";
+        } else {
+            echo "1";
+            if ($_POST["password"] == $_POST["confirm_password"] && strlen($_POST["password"])>8){
+                $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+                $valid_email = Register::emailValidation($email);
+                if ($valid_email){
+                    $klant = Register::insertKlant($_POST['name'], $email, $_POST['phone'], $password);
+                    header("Location: ". ROOT . "/profile/profile");
+                } else{
+                    echo "Deze email is ongeldig!";
+                }
+            }
+            elseif ($_POST["password"] == $_POST["confirm_password"] && strlen($_POST["password"])<8){
+                echo "het wachtwoord is te kort";
+            }
+            elseif ($_POST["password"] != $_POST["confirm_password"]){
+                echo "het wachtwoord is niet hetzelfde";
+            }
+            $_SESSION["user"] = $klant;
+        }
+    }
+
+?>
+
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -27,28 +73,29 @@
 
 <?php
 
-if (isset($_POST['create'])){
-    $email = strtolower($_POST['email']);
-    $klant = Register::CheckEmail($email);
-    if (isset($klant)){
-        echo "Deze email is al in gebruik!";
-    } else {
-        echo "1";
-        if ($_POST["password"] == $_POST["confirm_password"] && strlen($_POST["password"])>8){
-            $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-            $valid_email = Register::emailValidation($email);
-            if ($valid_email){
-                $data = Register::insertKlant($_POST['name'], $email, $_POST['phone'], $password);
-                header("Location: ". ROOT . "/profile/profile");
-            } else{
-                echo "Deze email is ongeldig!";
-            }
-        }
-        elseif ($_POST["password"] == $_POST["confirm_password"] && strlen($_POST["password"])<8){
-            echo "het wachtwoord is te kort";
-        }
-        elseif ($_POST["password"] != $_POST["confirm_password"]){
-            echo "het wachtwoord is niet hetzelfde";
-        }
-    }
-}
+// if (isset($_POST['create'])){
+//     $email = strtolower($_POST['email']);
+//     $klant = Register::CheckEmail($email);
+//     if (isset($klant)){
+//         echo "Deze email is al in gebruik!";
+//     } else {
+//         echo "1";
+//         if ($_POST["password"] == $_POST["confirm_password"] && strlen($_POST["password"])>8){
+//             $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+//             $valid_email = Register::emailValidation($email);
+//             if ($valid_email){
+//                 $data = Register::insertKlant($_POST['name'], $email, $_POST['phone'], $password);
+//                 header("Location: ". ROOT . "/profile/profile");
+//             } else{
+//                 echo "Deze email is ongeldig!";
+//             }
+//         }
+//         elseif ($_POST["password"] == $_POST["confirm_password"] && strlen($_POST["password"])<8){
+//             echo "het wachtwoord is te kort";
+//         }
+//         elseif ($_POST["password"] != $_POST["confirm_password"]){
+//             echo "het wachtwoord is niet hetzelfde";
+//         }
+//         $_SESSION["user"] = $data;
+//     }
+// }

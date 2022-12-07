@@ -50,7 +50,7 @@ class Register
 
     public static function emailValidation(string $email) : bool
     {
-        return (bool)(preg_match("^[a-zA-Z0-9.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$^",$email));
+       return (bool)(preg_match("^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$^",$email));
     }
 
     public static function insertKlant(string $name, string $email, string $phone, string $password){

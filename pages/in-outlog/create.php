@@ -1,43 +1,41 @@
 <?php
-
-    $regi_arr = array("sign_up_name","sign_up_email","sign_up_phone");
-    for ($i=0; $i < Count($regi_arr) ; $i++) 
-    { 
-        if (isset($_POST[$regi_arr[$i]])) 
-        {
-            $_SESSION[$regi_arr[$i]] = $_POST[$regi_arr[$i]];
-        }
-        else 
-        {
-            $_SESSION[$regi_arr[$i]] = "";
-        }
-    }
-    
-
-    if (isset($_POST['create'])){
+    if (!empty($_POST))
+    {
+        print_r($_POST);
         $email = strtolower($_POST['email']);
         $klant = Register::CheckEmail($email);
-        if (isset($klant)){
+        if (isset($klant))
+        {
             echo "Deze email is al in gebruik!";
-        } else {
-            echo "1";
-            if ($_POST["password"] == $_POST["confirm_password"] && strlen($_POST["password"])>8){
+        } 
+        else 
+        {
+            echo 1;
+            if ($_POST["password"] == $_POST["confirm_password"] && strlen($_POST["password"])>=8)
+            {
+                echo 2;
                 $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-                $valid_email = 1;
-                //Register::emailValidation($email);
-                if ($valid_email == 1){
+                $valid = Register::emailValidation($email);
+                echo $valid;
+                if ($valid)
+                {
+                    echo 2;
                     $klant = Register::insertKlant($_POST['name'], $email, $_POST['phone'], $password);
-                    $msg ="Uw status is gewijzigd naar: ".$_POST["status"].".\rUw inlog mail:".$_POST["email"]."\rBezoek de website: http://localhost/DeBlauweLoper/home";
+                    $msg ="Uw \rUw inlog mail:".$_POST["email"]."\rBezoek de website: http://localhost/DeBlauweLoper/home";
                     mail($email, "Registratie",$msg, "From:info@deblauweloper.nl"); 
                     header("Location: ". ROOT . "/profile/profile");
-                } else{
+                } 
+                else
+                {
                     echo "Deze email is ongeldig!";
                 }
             }
-            elseif ($_POST["password"] == $_POST["confirm_password"] && strlen($_POST["password"])<8){
+            elseif ($_POST["password"] == $_POST["confirm_password"] && strlen($_POST["password"])<8)
+            {
                 echo "het wachtwoord is te kort";
             }
-            elseif ($_POST["password"] != $_POST["confirm_password"]){
+            elseif ($_POST["password"] != $_POST["confirm_password"])
+            {
                 echo "het wachtwoord is niet hetzelfde";
             }
             $_SESSION["user"] = $klant;
@@ -60,15 +58,15 @@
     <form class="form_create" action="" autocomplete="off" method="post">
         <h2>Create an Account</h2>
         <p>Name</p>
-        <input type="text" name="name" placeholder="Enter Name">
+        <input type="text" name="name" placeholder="Enter Name" required>
         <p>Email</p>
-        <input type="email" name="email" placeholder="Enter Email">
+        <input type="email" name="email" placeholder="Enter Email" required>
         <p>Password</p>
-        <input type="number" name="phone" placeholder="Enter Phonenumber">
+        <input type="number" name="phone" placeholder="Enter Phonenumber" required>
         <p>Password</p>
-        <input type="password" name="password" placeholder="Enter Password">
+        <input type="password" name="password" placeholder="Enter Password" required>
         <p>Confirm Password</p>
-        <input type="password" name="confirm_password" placeholder="Enter Confirm-Password">
+        <input type="password" name="confirm_password" placeholder="Enter Confirm-Password" required>
         <input type="submit" name="create" value="create">
     </form>
     </body>

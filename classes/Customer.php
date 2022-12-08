@@ -56,6 +56,14 @@ class Customer
         $sth->execute($params);
         return $sth->rowcount();
     }
+
+    public static function getAllAdmins()
+    {   
+        $sth = DBConn::PDO()->prepare("SELECT customer.name, customer.email, customer.phone, customer_status.status FROM customer 
+        JOIN customer_status ON customer.customer_status_id = customer_status.id WHERE customer.customer_status_id >= 2  GROUP BY customer.name ORDER BY customer.customer_status_id DESC");
+        $sth->execute();
+        return $sth->fetchAll();
+    }
 }
 
 ?>

@@ -22,13 +22,18 @@
                 <a href="<?= ROOT ?>/profile/profile" class="nav-link text-primary border border-succes border-1 rounded fs-5">Profiel</a>    
             </ul>
         </div>
+        <div class="collapse navbar-collapse" id="navmenu">
+                <ul class="nav nav-pills nav-fill ms-auto">
+                    <a href="<?= ROOT ?>/matches/matches" class="nav-link text-primary border border-succes border-1 rounded fs-5">Wedstrijden</a>    
+                </ul>
+            </div>
         <?php if($_SESSION["user"]->getStatusId() == "3" || $_SESSION["user"]->getStatusId() == "4") : ?>
             <div class="collapse navbar-collapse" id="navmenu">
                 <ul class="nav nav-pills nav-fill ms-auto">
                     <a href="<?= ROOT ?>/customers/customers" class="nav-link text-primary border border-succes border-1 rounded fs-5">Leden</a>    
                 </ul>
             </div>
-        <?php endif ?>
+        <?php endif ?>  
         <div class="collapse navbar-collapse" id="navmenu">
             <ul class="nav nav-pills nav-fill ms-auto">
                 <a href="<?= ROOT ?>/in-outlog/logout" class="nav-link text-primary border border-succes border-1 rounded fs-5">Uitloggen</a>
@@ -41,7 +46,8 @@
             </ul>
         </div>
     <?php endif ;?>
-        <a href="<?= ROOT ?>" class="text-decoration-none">
+
+            <a href="<?= ROOT ?>" class="text-decoration-none">
             <h2 class="text-dark p-2">De <span class="text-primary">Blauwe </span><span class="text-dark">Loper</span></h2>
         </a>
 
@@ -50,3 +56,12 @@
         </button>
     </div>
 </nav>
+
+<!-- kijken waar deze moet -->
+<?php if($_SESSION["user"]->getStatusId() == "2" || $_SESSION["user"]->getStatusId() == "3") : ?>
+        <div class="collapse navbar-collapse" id="navmenu">
+            <ul class="nav nav-pills nav-fill ms-auto">
+                <a href="<?= ROOT ?>/matches/editMatches" class="nav-link text-primary border border-succes border-1 rounded fs-5">Wedstrijden aanpassesn</a>    
+            </ul>
+        </div>
+        <?php endif; ?>

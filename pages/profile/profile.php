@@ -1,24 +1,24 @@
 <?php
 
-    // $customer = $_SESSION["user"];
-    // $curPasswordErr = false;
-    // $deletePassCheck = $_SESSION["passError"] ?? false;
+    $customer = $_SESSION["user"];
+    $curPasswordErr = false;
+    $deletePassCheck = $_SESSION["passError"] ?? false;
 
-    // if (!empty($_POST)) {
-    //     $custCheck = Customer::CheckPassEmail($customer->getEmail(), $_POST["currentPassword"]);
+    if (!empty($_POST)) {
+        $custCheck = Customer::CheckPassEmail($customer->getEmail(), $_POST["currentPassword"]);
 
-    //     if (isset($custCheck)) {
-    //         (new Customer($customer->getId(), $_POST["name"], $_POST["email"], $_POST["phone"], $customer->getPassword()))->updateCustomer();
-    //         $_SESSION["user"] = Customer::getCutomerById($customer->getId());
-    //         header("Location: " . ROOT . $page);
-    //     } else {
-    //         $curPasswordErr = true;
-    //     }
-    // }
+        if (isset($custCheck)) {
+            (new Customer($customer->getId(), $_POST["name"], $_POST["email"], $_POST["phone"], $customer->getPassword()))->updateCustomer();
+            $_SESSION["user"] = Customer::getCutomerById($customer->getId());
+            header("Location: " . ROOT . $page);
+        } else {
+            $curPasswordErr = true;
+        }
+    }
 ?>
 
 <!-- Form van gegevens -->
-<!-- <section style="background-color: #fff;">
+<section style="background-color: #fff;">
 
     <div class="d-flex justify-content-center mt-4">
         <h2>Profiel <snap class="text-primary">Wijzigen</snap>
@@ -53,4 +53,4 @@
     </div>
 </section>
 
-<?php unset($_SESSION["passError"]); ?> -->
+<?php unset($_SESSION["passError"]); ?> 

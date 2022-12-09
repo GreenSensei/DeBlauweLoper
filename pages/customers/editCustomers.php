@@ -16,25 +16,35 @@
         }
     ?>
     <section class="text-center mt-5">
-        <h2>Leden aanpassen</h2>
+        <h2>Leden <span class="text-primary">aanpassen</span></h2>
     </section>
-<!-- from leden aanpassen -->
-    <div class="container mt-5">
-        <form method="post">
-            <label>Naam:</label>
-            <input type="text" name="name" value="<?=$customer->getName()?>" readonly>
-            <label>Email:</label>
-            <input type="email" name="email" value="<?=$customer->getEmail()?>" readonly>
-            <label>Telefoonnummer:</label>
-            <input type="text" name="phone" value="<?=$customer->getPhone()?>" readonly>
-            <label>Status:</label>
-            <input type="text" list="status" name="status" required>
-            <datalist id="status">
-                <?php foreach (Status::getAllStatuses() as $statuses) : ?>
-                    <option value="<?=$statuses["status"]?>"></option>
-                <?php endforeach; ?>
-            </datalist>
-            <input type="submit" value="Veranderen">
+    <!-- from leden aanpassen -->
+    <div class="d-flex justify-content-center mt-5 ">
+        <form class="form-horizontal bg-light p-5 rounded" method="post">
+            <div class="mb-3">
+                <label class="form-label">Naam:</label>
+                <input class="form-control fs-4" type="text" name="name" value="<?=ucwords($customer->getName())?>" readonly>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Email:</label>
+                <input class="form-control fs-4" type="email" name="email" value="<?=$customer->getEmail()?>" readonly>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Telefoonnummer:</label>
+                <input class="form-control fs-4" type="text" name="phone" value="<?=$customer->getPhone()?>" readonly>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Status:</label>
+                <input class="form-control fs-4" type="text" list="status" name="status" required>
+                <datalist id="status">
+                    <?php foreach (Status::getAllStatuses() as $statuses) : ?>
+                       <option value="<?=$statuses["status"]?>"></option>
+                    <?php endforeach; ?>
+                </datalist>
+            </div>
+            <div class="d-flex justify-content-center">
+                <input class="btn btn-primary btn-lg me-3"type="submit" value="Veranderen">
+            </div>
         </form>
     </div>
 </body>

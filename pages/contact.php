@@ -1,5 +1,6 @@
 <section class="text-center mt-5">
         <h2>Beheerders</h2>
+        Hier vind u ons secretariaart, bestuur en onze scheidsrechters.
     </section>
 <!-- admin table -->
 

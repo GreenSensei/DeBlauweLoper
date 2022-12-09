@@ -58,10 +58,10 @@
 </nav>
 
 <!-- kijken waar deze moet -->
-<?php if($_SESSION["user"]->getStatusId() == "2" || $_SESSION["user"]->getStatusId() == "3") : ?>
-        <div class="collapse navbar-collapse" id="navmenu">
+<?php //if($_SESSION["user"]->getStatusId() == "2" || $_SESSION["user"]->getStatusId() == "3") : ?>
+        <!-- <div class="collapse navbar-collapse" id="navmenu">
             <ul class="nav nav-pills nav-fill ms-auto">
                 <a href="<?= ROOT ?>/matches/editMatches" class="nav-link text-primary border border-succes border-1 rounded fs-5">Wedstrijden aanpassesn</a>    
             </ul>
-        </div>
-        <?php endif; ?>
+        </div> -->
+        <?php //endif; ?>

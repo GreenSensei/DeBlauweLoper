@@ -2,7 +2,10 @@
 <body>
     <?php
         $customer = Customer::getCustomerById($_GET["id"]);
-        $status = Status::getStatusById($customer->getStatusId());
+
+        // vv onnodig??
+        // $status = Status::getStatusById($customer->getStatusId());
+        $statusus = Status::getAllStatuses();
         if(!empty($_POST))
         { 
             //update functie 
@@ -23,24 +26,23 @@
         <form class="form-horizontal bg-light p-5 rounded" method="post">
             <div class="mb-3">
                 <label class="form-label">Naam:</label>
-                <input class="form-control fs-4" type="text" name="name" value="<?=ucwords($customer->getName())?>" readonly>
+                <input class="form-control fs-4" type="text" name="name" value="<?=ucwords($customer->getName())?>" disabled>
             </div>
             <div class="mb-3">
                 <label class="form-label">Email:</label>
-                <input class="form-control fs-4" type="email" name="email" value="<?=$customer->getEmail()?>" readonly>
+                <input class="form-control fs-4" type="email" name="email" value="<?=$customer->getEmail()?>" disabled>
             </div>
             <div class="mb-3">
                 <label class="form-label">Telefoonnummer:</label>
-                <input class="form-control fs-4" type="text" name="phone" value="<?=$customer->getPhone()?>" readonly>
+                <input class="form-control fs-4" type="text" name="phone" value="<?=$customer->getPhone()?>" disabled>
             </div>
-            <div class="mb-3">
-                <label class="form-label">Status:</label>
-                <input class="form-control fs-4" type="text" list="status" name="status" required>
-                <datalist id="status">
-                    <?php foreach (Status::getAllStatuses() as $statuses) : ?>
-                       <option value="<?=$statuses["status"]?>"></option>
-                    <?php endforeach; ?>
-                </datalist>
+            <div class="mb-3">           
+                <label class="form-label">Status</label>               
+                <select class="form-control fs-4" name="status" id="id">
+                    <?php for ($i=0; $i < count($statusus) ; $i++) : ?>
+                        <option value='<?=$statusus[$i]["id"]?>' <?php if(Status::getStatusById($customer->getStatusId())->getStatus() == $statusus[$i]['status']) {echo "selected";} ?>><?=$statusus[$i]["status"]?></option>
+                    <?php endfor ?>
+                </select>
             </div>
             <div class="d-flex justify-content-center">
                 <input class="btn btn-primary btn-lg me-3"type="submit" value="Veranderen">

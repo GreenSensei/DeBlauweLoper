@@ -12,6 +12,7 @@ require_once("classes/Customer.php");
 require_once("classes/Status.php");
 require_once("classes/Register.php");
 require_once("classes/Profile.php");
+require_once("classes/Matches.php");
 
 session_start();
 

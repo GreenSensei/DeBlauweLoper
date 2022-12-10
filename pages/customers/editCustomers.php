@@ -8,7 +8,7 @@
         $statusus = Status::getAllStatuses();
         if(!empty($_POST))
         { 
-            //update functie 
+            //update function
             (new Customer($customer->getId(), $_POST["name"], $_POST["email"], $_POST["phone"], Status::getStatusByVarchar($_POST["status"])->getId()))->updateCustomer();
 
             $msg ="Uw status is gewijzigd naar: ".$_POST["status"].".\rUw inlog mail:" .$_POST["email"]."\rBezoek de website: http://localhost/DeBlauweLoper/home";
@@ -21,7 +21,7 @@
     <section class="text-center mt-5">
         <h2>Leden <span class="text-primary">aanpassen</span></h2>
     </section>
-    <!-- from leden aanpassen -->
+    <!-- from edit customers -->
     <div class="d-flex justify-content-center mt-5 ">
         <form class="form-horizontal bg-light p-5 rounded" method="post">
             <div class="mb-3">
@@ -38,9 +38,9 @@
             </div>
             <div class="mb-3">           
                 <label class="form-label">Status</label>               
-                <select class="form-control fs-4" name="status" id="id">
+                <select class="form-control fs-4 form-select" name="status" id="id">
                     <?php for ($i=0; $i < count($statusus) ; $i++) : ?>
-                        <option value='<?=$statusus[$i]["id"]?>' <?php if(Status::getStatusById($customer->getStatusId())->getStatus() == $statusus[$i]['status']) {echo "selected";} ?>><?=$statusus[$i]["status"]?></option>
+                        <option value='<?=$statusus[$i]["id"]?>' <?php if(Status::getStatusById($customer->getStatusId())->getStatus() == $statusus[$i]['status']) {echo "selected";} ?>><?=ucwords($statusus[$i]["status"])?></option>
                     <?php endfor ?>
                 </select>
             </div>

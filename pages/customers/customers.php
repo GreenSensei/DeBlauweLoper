@@ -2,7 +2,7 @@
     <section class="text-center mt-5">
         <h2>Leden</h2>
     </section>
-<!-- tabel leden overzicht -->
+<!-- table customers -->
     <section class="container mt-5">
         <table class="table table-striped">
             <thead>
@@ -18,12 +18,11 @@
                 <?php foreach (Customer::getAllCustomers() as $customer) : ?>
                     <tr>
                         <?php for ($i=0; $i <(count($customer)/2)-1 ; $i++) : ?>
-                            <?php if($i == 0) : ?>
+                            <?php if($i == 0 || $i == 3) : ?>
                                 <td class="align-middle"><?=ucwords($customer[$i])?></td>
                             <?php else : ?>
                                 <td class="align-middle"><?=$customer[$i]?></td>
                             <?php endif; ?>
-                            
                         <?php endfor; ?>
                         <td style="width: 15%">
                             <a href="<?=ROOT?>/customers/editCustomers?id=<?=$customer["id"]?>">

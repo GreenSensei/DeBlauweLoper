@@ -19,7 +19,7 @@
             <?php foreach (Customer::getAllAdmins() as $admin) : ?>
                     <tr>
                         <?php for ($i=0; $i <count($admin)/2 ; $i++) : ?>
-                            <?php if($i == 0) : ?>
+                            <?php if($i == 0 || $i == 3) : ?>
                                 <td class="align-middle"><?=ucwords($admin[$i])?></td>
                             <?php else : ?>
                                 <td class="align-middle"><?=$admin[$i]?></td>

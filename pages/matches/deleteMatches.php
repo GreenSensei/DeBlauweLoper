@@ -9,8 +9,8 @@
         if(!empty($_POST))
         { 
             //delete function
-            $matches->deleteMatch($matches["id"]);
-
+            
+            $matches->deleteMatch();
             header("Location: ". ROOT . "/matches/matches");
         }
     ?>
@@ -45,7 +45,7 @@
                     value="<?=$matches->getEnd_time()?>" disabled>
             </div>
             <div class="d-flex justify-content-center">
-                <input class="btn btn-primary btn-lg me-3"type="submit" value="Verwijderen">
+                <input class="btn btn-primary btn-lg me-3" type="submit" name="delete" value="Verwijderen">
             </div>
         </form>
     </div>

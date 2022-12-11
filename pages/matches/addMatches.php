@@ -7,7 +7,7 @@
         { 
             //insert function
             $scores = "0-0";
-            Matches::insertMatch(0, $scores ,$_POST['player_1'], $_POST['player_2'], $_POST['start_date'], $_POST["end_date"]);
+            Matches::insertMatch($scores ,$_POST['player_1'], $_POST['player_2'], $_POST['start_time'], $_POST["end_time"]);
 
             header("Location: ". ROOT . "/matches/matches");
         }

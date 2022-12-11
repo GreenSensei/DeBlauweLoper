@@ -62,17 +62,16 @@
         public static function insertMatch(string $scores, string $player_1, string $player_2, string $start_time, string $end_time)
         {
             $parameters = array(":scores" => $scores, ":player_1" => $player_1, ":player_2" => $player_2, ":start_time" => $start_time, ":end_time"=> $end_time);
-            $sth = DBConn::PDO()->prepare("INSERT INTO matches (scores, player_1, player_2, start_time, end_time) VALUES (:scores, :eplayer_1, :player_2, :start_time, :end_time)");
+            $sth = DBConn::PDO()->prepare("INSERT INTO matches (scores, player_1, player_2, start_time, end_time) VALUES (:scores, :player_1, :player_2, :start_time, :end_time)");
             $sth->execute($parameters);
-            $row = $sth->fetch();
-            return $row->rowCount();
         }
 
-        public function deleteMatch($id)
+        public function deleteMatch(): ?int
         {
-            $params = array(":id" => $id);
-            $sth = DBConn::PDO()->prepare("DELETE FROM matches WHERE id =:id");
+            $params = array(':id' => $this->id);
+            $sth = DBConn::PDO()->prepare("DELETE FROM matches WHERE id = :id");
             $sth->execute($params);
+            return 1;
         }
     }
 ?>

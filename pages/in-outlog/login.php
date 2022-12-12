@@ -34,7 +34,8 @@ if (isset($_POST["login"]))
 <!--            <input type="submit" name="login" value="login">-->
 <!--        </form>-->
 <!--     Login    -->
-    <section class="vh-100 gradient-custom">
+<form action="" method="post">
+    <section class="vh-50 gradient-custom">
         <div class="container py-5 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col-12 col-md-8 col-lg-6 col-xl-5">
@@ -71,6 +72,7 @@ if (isset($_POST["login"]))
             </div>
         </div>
     </section>
+</form>
 
     </body>
 </html>

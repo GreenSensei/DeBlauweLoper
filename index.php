@@ -47,6 +47,8 @@ session_start();
 
             require_once("pages/" . $page . ".php");
         }
+
+        require_once("required/footer.php");
         ?>
     </body>
 

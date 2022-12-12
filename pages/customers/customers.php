@@ -1,8 +1,7 @@
-<body>
     <section class="text-center mt-5">
         <h2>Leden</h2>
     </section>
-<!-- table customers -->
+    <!-- table customers -->
     <section class="container mt-5">
         <table class="table table-hover">
             <thead>
@@ -36,4 +35,3 @@
             </tbody>
         </table>
     </section>
-</body>

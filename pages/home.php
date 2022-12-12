@@ -1,6 +1,8 @@
-<body>
+    <section class="text-center mt-5">
+        <h1> Welkom bij De <span class="text-primary">Blauwe </span> Loper!</h1>
+    </section>
+
     <div class="container mt-5 me-5">
-        <h1 style="margin-left: 10%;"> Welkom bij De <span class="text-primary">Blauwe </span> Loper!</h1>
         <div class="row mt-5">   
             <p class="col-lg-6">
                 Het moet ergens in 1980 geweest zijn dat een aantal schaakliefhebbers elkaar vonden en besloten een echte schaakvereniging op te richten. 
@@ -10,10 +12,10 @@
                 Al snel konden er, door de donaties en contributie, borden en spellen op naam van de club gekocht worden. 
                 In 1981 was het zover; de officiële oprichting van Schaakvereniging De Blauwe Loper.
             </p>
-            <img class="col-lg-6" src="images/king.png" style="width:15%; height:auto">
+            <img class="col-lg-6" src="images/king.png" style="width: 15%; height:auto">
         </div>
         <div class="row">
-            <img class="col-lg-6" src="images/queen.png" style="width:15%; height:auto">
+            <img class="col-lg-6" src="images/queen.png" style="width: 15%; height:auto">
             <p class="col-lg-6">
                 Waar de vereniging toen voor stond, en nu nog, is de liefde voor het edele schaakspel. 
                 Liever een mooie partij verliezen dan een saaie partij winnen, waardoor de strijd op het schaakbord niet geschuwd wordt. 
@@ -31,7 +33,6 @@
 
                 Geïnteresseerd? Kom langs op onze clubavond.
             </p>
-            <img class="col-lg-6" src="images/rook.png" style="width:15%; height:auto">
+            <img class="col-lg-6" src="images/rook.png" style="width: 15%; height:auto">
         </div>
     </div>
-</body>

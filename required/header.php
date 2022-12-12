@@ -9,7 +9,7 @@
                     </li>
                 <?php else : ?>
                     <li>
-                        <a href="<?= ROOT ?>/home" class="nav-link text-primary border border-succes border-1 rounded fs-5">Home</a>
+                        <a href="<?= ROOT ?>/home" class="nav-link text-primary border border-primary border-1 rounded fs-5">Home</a>
                     </li>
                 <?php endif; ?>
             </ul>
@@ -22,7 +22,7 @@
                     </li>
                 <?php else : ?>
                     <li>
-                        <a href="<?= ROOT ?>/informatie" class="nav-link text-primary border border-succes border-1 rounded fs-5">Informatie</a>
+                        <a href="<?= ROOT ?>/informatie" class="nav-link text-primary border border-primary border-1 rounded fs-5">Informatie</a>
                     </li>
                 <?php endif; ?>            
             </ul>
@@ -35,7 +35,7 @@
                     </li>
                 <?php else : ?>
                     <li>
-                        <a href="<?= ROOT ?>/contact" class="nav-link text-primary border border-succes border-1 rounded fs-5 ">Contact</a> 
+                        <a href="<?= ROOT ?>/contact" class="nav-link text-primary border border-primary border-1 rounded fs-5 ">Contact</a> 
                     </li>
                 <?php endif; ?>
             </ul>
@@ -49,7 +49,7 @@
                         </li>
                     <?php else : ?>
                         <li>
-                            <a href="<?= ROOT ?>/profile/profile" class="nav-link text-primary border border-succes border-1 rounded fs-5">Profiel</a> 
+                            <a href="<?= ROOT ?>/profile/profile" class="nav-link text-primary border border-primary border-1 rounded fs-5">Profiel</a> 
                         </li>
                     <?php endif; ?>   
                 </ul>
@@ -62,7 +62,7 @@
                         </li>        
                     <?php else : ?>
                         <li>
-                            <a href="<?= ROOT ?>/matches/matches" class="nav-link text-primary border border-succes border-1 rounded fs-5">Wedstrijden</a>    
+                            <a href="<?= ROOT ?>/matches/matches" class="nav-link text-primary border border-primary border-1 rounded fs-5">Wedstrijden</a>    
                         </li>
                     <?php endif; ?>
                 </ul>
@@ -76,7 +76,7 @@
                             </li>
                         <?php else : ?>
                             <li>
-                                <a href="<?= ROOT ?>/customers/customers" class="nav-link text-primary border border-succes border-1 rounded fs-5">Leden</a>    
+                                <a href="<?= ROOT ?>/customers/customers" class="nav-link text-primary border border-primary border-1 rounded fs-5">Leden</a>    
                             </li>
                         <?php endif; ?>
                     </ul>
@@ -84,7 +84,7 @@
             <?php endif ?>  
             <div class="collapse navbar-collapse" id="navmenu">
                 <ul class="nav nav-pills nav-fill ms-auto">
-                    <a href="<?= ROOT ?>/in-outlog/logout" class="nav-link text-primary border border-succes border-1 rounded fs-5">Uitloggen</a>
+                    <a href="<?= ROOT ?>/in-outlog/logout" class="nav-link text-primary border border-primary border-1 rounded fs-5">Uitloggen</a>
                 </ul>
             </div>
         <?php else : ?>
@@ -96,18 +96,17 @@
                         </li>
                     <?php else : ?>
                         <li>
-                            <a href="<?= ROOT ?>/in-outlog/login" class="nav-link text-primary border border-succes border-1 rounded fs-5">Inloggen</a>    
+                            <a href="<?= ROOT ?>/in-outlog/login" class="nav-link text-primary border border-primary border-1 rounded fs-5">Inloggen</a>    
                         </li>
                     <?php endif; ?>
                 </ul>
             </div>
         <?php endif ;?>
-            <h2 class="text-dark p-2">De <span class="text-primary">Blauwe </span>Loper</h2>
         <?php if ($page == "home" || $page == "informatie" || $page == "contact" || $page == "") : ?>
             <img style="height:auto; width:5%;" src="images/bishop.png">
         <?php else : ?>
             <img style="height:auto; width:5%;" src="../images/bishop.png">
-        <?php endif; ?>
+        <?php endif; ?> 
         <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
             <span class="navbar-toggler-icon"></span>
         </button> -->

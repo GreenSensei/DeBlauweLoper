@@ -1,5 +1,4 @@
 <!-- update functions -->
-<body>
     <?php
         $customer = Customer::getCustomerById($_GET["id"]);
 
@@ -49,4 +48,3 @@
             </div>
         </form>
     </div>
-</body>

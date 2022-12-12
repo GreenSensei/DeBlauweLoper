@@ -1,10 +1,9 @@
-<section class="text-center mt-5">
+    <section class="text-center mt-5">
         <h2>Beheerders</h2>
         Hier vind u ons secretariaart, bestuur en onze scheidsrechters.
     </section>
 <!-- admin table -->
 
-<body>
     <div class="container mt-5">
         <table class="table">
             <thead>
@@ -30,4 +29,3 @@
             </tbody>
         </table>
     </div>
-</body>

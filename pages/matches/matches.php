@@ -1,6 +1,3 @@
-<?php
-?>
-<body>
     <section class="text-center mt-5">
         <h2>Wedstrijd <span class="text-primary">overzicht<span></h2>
     </section>
@@ -67,4 +64,3 @@
             </tbody>
         </table>
     </div>
-</body>

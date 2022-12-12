@@ -1,5 +1,4 @@
 <!-- information functions -->
-<body>
     <?php
         $matches = Matches::getMatchById($_GET["id"]);
         $player_1 = Customer::getCustomerById($matches->getPlayer_1());
@@ -49,4 +48,3 @@
             </div>
         </form>
     </div>
-</body>

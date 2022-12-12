@@ -39,7 +39,7 @@
             </div>
             <div class="mb-3">
                 <label class="form-label">Uitslag:</label>
-                <input class="form-control fs-4" type="text" pattern="[0-9]{2}[0-9]{2}"  placeholder="00-00" name="scores" value="<?=$matches->getScores()?>">
+                <input class="form-control fs-4" type="text" pattern="[0-9]-[0-9]"  placeholder="00-00" name="scores" value="<?=$matches->getScores()?>">
             </div>
             <div class="mb-3">
                     <label class="form-label">Start tijd</label>

@@ -1,7 +1,7 @@
 <body>
-    <div class="container mt-5">
-        <h1> Welkom bij De <span class="text-primary">Blauwe </span> Loper!</h1>
-        <section class="row mt-5">   
+    <div class="container mt-5 me-5">
+        <h1 style="margin-left: 10%;"> Welkom bij De <span class="text-primary">Blauwe </span> Loper!</h1>
+        <div class="row mt-5">   
             <p class="col-lg-6">
                 Het moet ergens in 1980 geweest zijn dat een aantal schaakliefhebbers elkaar vonden en besloten een echte schaakvereniging op te richten. 
                 Er werd een voorlopig bestuur gekozen en het plaatselijke café wilde graag de nieuwe vereniging onderdak verlenen. 
@@ -11,8 +11,8 @@
                 In 1981 was het zover; de officiële oprichting van Schaakvereniging De Blauwe Loper.
             </p>
             <img class="col-lg-6" src="images/king.png" style="width:15%; height:auto">
-        </section>
-        <section class="row">
+        </div>
+        <div class="row">
             <img class="col-lg-6" src="images/queen.png" style="width:15%; height:auto">
             <p class="col-lg-6">
                 Waar de vereniging toen voor stond, en nu nog, is de liefde voor het edele schaakspel. 
@@ -20,8 +20,8 @@
                 In iedere partij wordt keihard gestreden voor de winst maar naderhand wordt meestal de strijdbijl begraven onder het genot van een drankje aan de gezellige toog van de Keurvorst. 
                 Dat is de essentie van onze vereniging; een vriendenclub met respect voor elkaar, ongeacht afkomst, nationaliteit, rating of wat dan ook... Het is het spelletje wat ons bindt en verenigt.
             </p>
-        </section>
-        <section class="row">
+        </div>
+        <div class="row">
             <p class="col-lg-6">
                 Wij spelen op donderdagavond onze interne competitie. 
                 We starten om 20.00 uur, met 1.45 uur voor 40 zetten per persoon. 
@@ -32,10 +32,6 @@
                 Geïnteresseerd? Kom langs op onze clubavond.
             </p>
             <img class="col-lg-6" src="images/rook.png" style="width:15%; height:auto">
-
-        </section>
-            
-           
-        <!-- </section> -->
+        </div>
     </div>
 </body>

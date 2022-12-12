@@ -5,7 +5,7 @@
         <h2>Wedstrijd <span class="text-primary">overzicht<span></h2>
     </section>
     
-    <?php if($_SESSION["user"]->getStatusId() == "2") :?>
+    <?php if($_SESSION["user"]->getStatusId() == "3") :?>
         <section class="text-center mt-5">
             <a href="<?=ROOT?>/matches/addMatches">
                 <button type="button" class="btn btn-lg bg-primary text-light">
@@ -27,7 +27,7 @@
                     <td>Uitslag</td>
                     <td>Start tijd</td>
                     <td>Eind tijd</td>
-                    <?php if($_SESSION["user"]->getStatusId() == "2") :?>
+                    <?php if($_SESSION["user"]->getStatusId() == "3") :?>
                         <td>Beheren</td>
                     <?php endif; ?>
                 </tr>
@@ -35,10 +35,10 @@
             </tbody>
                 <?php foreach(Matches::getAllMatches() as $matches) : ?>
                     <tr>
-                        <?php for ($i=0; $i <count($matches)/2 ; $i++) : ?>
-                            <?php if($i == 0 || $i == 1) : ?>
-                                <td><?= Customer::getCustomerById($matches[$i])->getName()?><td>             
-                            <?php elseif($i == 3 || $i == 4) : ?>
+                        <?php for ($i=1; $i <(count($matches)/2) ; $i++) : ?>
+                            <?php if($i == 1 || $i == 2) : ?>
+                                <td><?= Customer::getCustomerById(ucwords($matches[$i]))->getName()?><td>             
+                            <?php elseif($i == 4 || $i == 5) : ?>
                                 <td>
                                     <?= date("H:i:s", strtotime($matches[$i])) ?>
                                     --
@@ -48,10 +48,10 @@
                                 <td><?=$matches[$i]?></td>
                             <?php endif; ?>              
                         <?php endfor; ?>
-                        <?php if($_SESSION["user"]->getStatusId() == "2") : ?>
+                        <?php if($_SESSION["user"]->getStatusId() == "3") : ?>
                             <td style="width: 15%">
                                 <a href="<?=ROOT?>/matches/editMatches?id=<?=$matches["id"]?>">
-                                    <button type="button" class="btn btn-sm" style="width: 30%">
+                                    <button type="button" class="btn btn-sm" style="width: 30%; text-decoration:none;">
                                         <img style="width: 100%" src="<?=ROOT?>/images/edit.png">
                                     </button>
                                 </a>

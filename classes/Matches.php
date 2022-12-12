@@ -36,7 +36,7 @@
         }
         public static function getAllMatches()
         {
-            $sth = DBConn::PDO()->prepare("SELECT player_1, player_2, scores, start_time, end_time FROM matches JOIN customer ON matches.player_1 = customer.id");
+            $sth = DBConn::PDO()->prepare("SELECT matches.id, player_1, player_2, scores, start_time, end_time FROM matches JOIN customer ON matches.player_1 = customer.id ORDER BY matches.start_time");
             $sth->execute();
             return $sth->fetchAll();
         }

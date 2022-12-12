@@ -8,11 +8,11 @@
         $statusus = Status::getAllStatuses();
         if(!empty($_POST))
         { 
-            //update function
-            (new Customer($customer->getId(), $_POST["name"], $_POST["email"], $_POST["phone"], Status::getStatusByVarchar($_POST["status"])->getId()))->updateCustomer();
+            //update function Status::getStatusByVarchar($_POST["status"])->getId()
+            (new Customer($customer->getId(), $customer->getName(), $customer->getEmail(), $customer->getPhone(), $_POST["status"]))->updateCustomer();
 
-            $msg ="Uw status is gewijzigd naar: ".$_POST["status"].".\rUw inlog mail:" .$_POST["email"]."\rBezoek de website: http://localhost/DeBlauweLoper/home";
-            mail($_POST["email"], "Wijziging status",$msg, "From:info@deblauweloper.nl"); 
+            $msg ="Uw status is gewijzigd naar: ".$_POST["status"].".\rUw inlog mail:" .$customer->getEmail()."\rBezoek de website: http://localhost/DeBlauweLoper/home";
+            mail($customer->getEmail(), "Wijziging status",$msg, "From:info@deblauweloper.nl"); 
 
             header("Location: ". ROOT . "/customers/customers");
             

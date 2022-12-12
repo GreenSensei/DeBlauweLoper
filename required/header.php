@@ -106,8 +106,13 @@
         <a href="<?= ROOT ?>" class="text-decoration-none">
             <h2 class="text-dark p-2">De <span class="text-primary">Blauwe </span><span class="text-dark">Loper</span></h2>
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+        <?php if ($page == "home" || $page == "informatie" || $page == "contact" || $page == "") : ?>
+            <img style="height:auto; width:5%;" src="images/bishop.png">
+        <?php else : ?>
+            <img style="height:auto; width:5%;" src="../images/bishop.png">
+        <?php endif; ?>
+        <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
             <span class="navbar-toggler-icon"></span>
-        </button>
+        </button> -->
     </div>
 </nav>

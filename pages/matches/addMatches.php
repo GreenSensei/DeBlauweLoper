@@ -22,7 +22,7 @@
                 <label class="form-label">Speler 1:</label>
                 <select class="form-control fs-4 form-select" name="player_1" id="id">
                     <?php for ($i=0; $i < count($customer) ; $i++) : ?>
-                        <option value="<?=$customer[$i]["id"]?>"><?=$customer[$i]["name"]?></option>
+                        <option value="<?=$customer[$i]["id"]?>"><?=ucwords($customer[$i]["name"])?></option>
                     <?php endfor ?>
                 </select>
             </div>
@@ -30,7 +30,7 @@
                 <label class="form-label">Speler 2:</label>
                 <select class="form-control fs-4 form-select" name="player_2" id="id">
                     <?php for ($i=0; $i < count($customer) ; $i++) : ?>
-                        <option value="<?=$customer[$i]["id"]?>"><?=$customer[$i]["name"]?></option>
+                        <option value="<?=$customer[$i]["id"]?>"><?=ucwords($customer[$i]["name"])?></option>
                     <?php endfor ?>
                 </select>
             </div>

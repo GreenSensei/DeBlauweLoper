@@ -24,7 +24,12 @@ session_start();
     <head>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-        <link rel="icon" href="images/logo.png">
+        <?php $page = Pages::getHeader(); ?>
+        <?php if ($page == "home" || $page == "informatie" || $page == "contact") : ?>
+            <link rel="icon" href="images/bishop.png">
+        <?php else : ?>
+            <link rel="icon" href="../images/bishop.png">
+        <?php endif; ?>
         
         <title>DeBlauweLoper</title>
     </head>
@@ -32,7 +37,7 @@ session_start();
     <body>
         <?php
 
-        $page = Pages::getHeader();
+        
         require_once("required/header.php");
 
         if ($page == "Login" ) {

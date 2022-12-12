@@ -4,7 +4,7 @@
     </section>
 <!-- table customers -->
     <section class="container mt-5">
-        <table class="table table-striped">
+        <table class="table table-hover">
             <thead>
                 <tr>
                     <td>Naam</td>

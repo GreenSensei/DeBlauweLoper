@@ -2,16 +2,22 @@
 ?>
 <body>
     <section class="text-center mt-5">
-        <h2>Wedstrijd overzicht</h2>
+        <h2>Wedstrijd <span class="text-primary">overzicht<span></h2>
     </section>
-
-    <section class="text-center mt-5">
-        <h3>toevoegen</h3>
-    </section>
+    
+    <?php if($_SESSION["user"]->getStatusId() == "2") :?>
+        <section class="text-center mt-5">
+            <a href="<?=ROOT?>/matches/addMatches">
+                <button type="button" class="btn btn-lg bg-primary text-light">
+                    Toevoegen
+                </button>
+            </a>
+        </section>
+    <?php endif;?>
 
     <!-- match table -->
     <div class="container mt-5">
-        <table class="table table-striped">
+        <table class="table table-hover">
             <thead>
                 <tr>
                     <td>Speler 1</td>
@@ -21,8 +27,7 @@
                     <td>Uitslag</td>
                     <td>Start tijd</td>
                     <td>Eind tijd</td>
-                    <!-- 3 -> 2 -->
-                    <?php if($_SESSION["user"]->getStatusId() == "3") :?>
+                    <?php if($_SESSION["user"]->getStatusId() == "2") :?>
                         <td>Beheren</td>
                     <?php endif; ?>
                 </tr>
@@ -43,8 +48,7 @@
                                 <td><?=$matches[$i]?></td>
                             <?php endif; ?>              
                         <?php endfor; ?>
-                        <!-- 3 -> 2 -->
-                        <?php if($_SESSION["user"]->getStatusId() == "3") : ?>
+                        <?php if($_SESSION["user"]->getStatusId() == "2") : ?>
                             <td style="width: 15%">
                                 <a href="<?=ROOT?>/matches/editMatches?id=<?=$matches["id"]?>">
                                     <button type="button" class="btn btn-sm" style="width: 30%">

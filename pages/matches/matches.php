@@ -2,7 +2,7 @@
         <h2>Wedstrijd <span class="text-primary">overzicht<span></h2>
     </section>
     
-    <?php if($_SESSION["user"]->getStatusId() == "3") :?>
+    <?php if($_SESSION["user"]->getStatusId() == "2") :?>
         <section class="text-center mt-5">
             <a href="<?=ROOT?>/matches/addMatches">
                 <button type="button" class="btn btn-lg bg-primary text-light">
@@ -24,7 +24,7 @@
                     <td>Uitslag</td>
                     <td>Start tijd</td>
                     <td>Eind tijd</td>
-                    <?php if($_SESSION["user"]->getStatusId() == "3") :?>
+                    <?php if($_SESSION["user"]->getStatusId() == "2") :?>
                         <td>Beheren</td>
                     <?php endif; ?>
                 </tr>
@@ -45,7 +45,7 @@
                                 <td><?=$matches[$i]?></td>
                             <?php endif; ?>              
                         <?php endfor; ?>
-                        <?php if($_SESSION["user"]->getStatusId() == "3") : ?>
+                        <?php if($_SESSION["user"]->getStatusId() == "2") : ?>
                             <td style="width: 15%">
                                 <a href="<?=ROOT?>/matches/editMatches?id=<?=$matches["id"]?>">
                                     <button type="button" class="btn btn-sm" style="width: 30%;">

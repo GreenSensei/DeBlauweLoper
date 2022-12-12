@@ -102,10 +102,7 @@
                 </ul>
             </div>
         <?php endif ;?>
-
-        <a href="<?= ROOT ?>" class="text-decoration-none">
-            <h2 class="text-dark p-2">De <span class="text-primary">Blauwe </span><span class="text-dark">Loper</span></h2>
-        </a>
+            <h2 class="text-dark p-2">De <span class="text-primary">Blauwe </span>Loper</h2>
         <?php if ($page == "home" || $page == "informatie" || $page == "contact" || $page == "") : ?>
             <img style="height:auto; width:5%;" src="images/bishop.png">
         <?php else : ?>

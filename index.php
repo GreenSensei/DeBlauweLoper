@@ -37,6 +37,7 @@ session_start();
 
     <body>
         <?php
+        $page = Pages::getHeader();
         require_once("required/header.php");
 
         if ($page == "Login" ) {

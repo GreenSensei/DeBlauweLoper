@@ -53,7 +53,7 @@
 
         public function updateMatch() : ?int
         {
-            $params = array(":id"=>$this->id, ":scores"=>$this->scores,":player_1"=>$this->player_1, ":player_2"=>$this->player_2, ":start_time"=>$this->start_time, ":end_time"=>$this->end_time);
+            $params = array(":id"=>$this->id, ":scores"=>$this->scores,":player_1"=>$this->player_1, ":player_2"=>(int)$this->player_2, ":start_time"=>$this->start_time, ":end_time"=>$this->end_time);
             $sth = DBConn::PDO()->prepare("UPDATE matches SET scores=:scores, player_1=:player_1, player_2=:player_2, start_time=:start_time, end_time=:end_time WHERE id = :id");
             $sth->execute($params);
             return $sth->rowcount();

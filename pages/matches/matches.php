@@ -51,7 +51,7 @@
                         <?php if($_SESSION["user"]->getStatusId() == "3") : ?>
                             <td style="width: 15%">
                                 <a href="<?=ROOT?>/matches/editMatches?id=<?=$matches["id"]?>">
-                                    <button type="button" class="btn btn-sm" style="width: 30%; text-decoration:none;">
+                                    <button type="button" class="btn btn-sm" style="width: 30%;">
                                         <img style="width: 100%" src="<?=ROOT?>/images/edit.png">
                                     </button>
                                 </a>

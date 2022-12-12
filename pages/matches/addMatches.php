@@ -1,17 +1,15 @@
-<!-- information functions -->
-<body>
-    <?php
-        $customer = Customer::getAllCustomers();
-        
-        if(!empty($_POST))
-        { 
-            //insert function
-            $scores = "0-0";
-            Matches::insertMatch($scores ,$_POST['player_1'], $_POST['player_2'], $_POST['start_time'], $_POST["end_time"]);
+<?php
+    $customer = Customer::getAllCustomers();
+    
+    if(!empty($_POST))
+    { 
+        //insert function
+        $scores = "0-0";
+        Matches::insertMatch($scores ,$_POST['player_1'], $_POST['player_2'], $_POST['start_time'], $_POST["end_time"]);
 
-            header("Location: ". ROOT . "/matches/matches");
-        }
-    ?>
+        header("Location: ". ROOT . "/matches/matches");
+    }
+?>
     <section class="text-center mt-5">
         <h2>Wedstrijden <span class="text-primary">toevoegen</span></h2>
     </section>
@@ -49,4 +47,3 @@
             </div>
         </form>
     </div>
-</body>

@@ -1,4 +1,4 @@
-    <section class="text-center mt-5">
+   <section class="text-center mt-5">
         <h2>Informatie</h2>
     </section>
 

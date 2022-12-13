@@ -44,7 +44,7 @@
                     value="<?=$matches->getEnd_time()?>" disabled>
             </div>
             <div class="d-flex justify-content-center">
-                <input class="btn btn-primary btn-lg me-3" type="submit" name="delete" value="Verwijderen">
+                <input class="btn btn-danger btn-lg me-3" type="submit" name="delete" value="Verwijderen">
             </div>
         </form>
     </div>

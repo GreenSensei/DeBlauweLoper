@@ -64,6 +64,16 @@ class Customer
         $sth->execute();
         return $sth->fetchAll();
     }
+
+
+    //profiel
+    public function deleteCustomerById(): ?int
+    {
+        $params = array(':id' => $this->id);
+        $sth = DBConn::PDO()->prepare("DELETE FROM customer WHERE id = :id");
+        $sth->execute($params);
+        return 1;
+    }
 }
 
 ?>

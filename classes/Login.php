@@ -124,5 +124,14 @@ class Login
         {
             return (bool)(preg_match("^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$^", $email));
         }
+
+        // profiel
+        public function updateCustomerById() : ?int
+        {
+            $params = array(":id"=>$this->id, ":name"=>$this->name, ":email"=>$this->email, ":phone"=>$this->phone, ":password"=>$this->password, ":customer_status_id"=>$this->statusId);
+            $sth = DBConn::PDO()->prepare("UPDATE customer SET name=:name, email=:email, phone=:phone, password=:password. customer_status_id=:customer_status_id WHERE id = :id");
+            $sth->execute($params);
+            return $sth->rowcount();
+        }
     }
 ?>
